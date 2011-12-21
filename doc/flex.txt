@@ -251,7 +251,6 @@ ftplugins. >
 
 Breaking down the autocmd:
     For any file opened under the myProject (C:\project\src): >
-        autocmd bufread */project/* 
 <
     Get the directory of the file just opened: >
                     \ let root_dir = substitute(fnamemodify(expand("<afile>"), ':p:h'), 'project\zs.*', '', '') |
@@ -557,7 +556,6 @@ Next, create an autocmd to automatically set the location of the build.xml
 file for the ant_menu plugin. >
     augroup myProject
         au!
-        autocmd bufread */project/*
                 \ let buildFile = substitute(fnamemodify(expand("<afile>"), ':p:h'), 'project\zs.*', '', '')|
                 \ let g:AM_userBuildFile = buildFile.'\build.xml'
     augroup end
